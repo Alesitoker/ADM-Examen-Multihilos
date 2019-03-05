@@ -7,7 +7,6 @@ import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.view.LayoutInflater;
@@ -53,7 +52,7 @@ public class MainFragment extends Fragment {
     }
 
     private void showWeather(WeatherT weatherT) {
-//        notificar(weatherT.getCountry(), weatherT.getDescription());
+        notificar(weatherT.getCountry(), weatherT.getDescription());
         b.lblCountry.setText(weatherT.getCountry());
         b.lblDescription.setText(weatherT.getDescription());
         Picasso.with(requireContext()).load(weatherT.getIcon()).into(b.imgIcon);
@@ -89,10 +88,12 @@ public class MainFragment extends Fragment {
     }
 
     private void notificar(String country, String description) {
-        NotificationCompat.Builder notification = new NotificationCompat.Builder(requireContext(), CHANNEL_ID)
+        Notification notification = new NotificationCompat.Builder(requireContext(), CHANNEL_ID)
+                .setSmallIcon(R.drawable.ic_notifications_black_24dp)
                 .setContentTitle(country)
-                .setContentText(description);
+                .setContentText(description)
+                .build();
 
-        notificationManager.notify(NOTIFICATION_ID, notification.build());
+        notificationManager.notify(NOTIFICATION_ID, notification);
     }
 }
