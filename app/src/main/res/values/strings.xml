@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">ADM-ExamenMultihilos</string>
+    <string name="main_fragment_lblCiudad">Ciudad</string>
+    <string name="lblTemp">Temperatura:</string>
+    <string name="lblTempMin">min %s ºC</string>
+    <string name="lblTempMax">max %s ºC</string>
+    <string name="lblTempMedia">media %s ºC</string>
+    <string name="lblRain">Lluvia: %s</string>
+    <string name="lblHumidity">Humedad:</string>
+    <string name="lblHumidity_data">Humedad: %s%%</string>
+    <string name="lblWind">Viento:</string>
+    <string name="lblWindSpeed">velocidad %s mps</string>
+    <string name="lblWindDeg">dirección %s º</string>
+    <string name="lblClouds">Nubosidad:</string>
+    <string name="lblClouds_data">Nubosidad: %s%%</string>
+    <string name="lblSunrise">Amanecer: %s</string>
+    <string name="lblSunset">Atardecer: %s</string>
+
+    <string name="app_main_channel_name">mainChannel</string>
+</resources>
