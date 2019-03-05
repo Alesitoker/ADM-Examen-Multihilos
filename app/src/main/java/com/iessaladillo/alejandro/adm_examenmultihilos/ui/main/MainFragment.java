@@ -1,6 +1,5 @@
 package com.iessaladillo.alejandro.adm_examenmultihilos.ui.main;
 
-import android.app.Notification;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -29,6 +28,7 @@ public class MainFragment extends Fragment {
     private MainFragmentViewModel viewModel;
     private FragmentMainBinding b;
     private NotificationManagerCompat notificationManager;
+    private NotificationCompat.Builder notification;
 
     @Nullable
     @Override
@@ -79,6 +79,9 @@ public class MainFragment extends Fragment {
         b.lblSunrise.setText(getString(R.string.lblSunrise, ""));
         b.lblSunset.setText(getString(R.string.lblSunset, ""));
 
+        notification = new NotificationCompat.Builder(requireContext(), CHANNEL_ID)
+                .setSmallIcon(R.drawable.ic_notifications_black_24dp);
+
         notificationManager = NotificationManagerCompat.from(requireContext());
 
     }
@@ -88,12 +91,9 @@ public class MainFragment extends Fragment {
     }
 
     private void notificar(String country, String description) {
-        Notification notification = new NotificationCompat.Builder(requireContext(), CHANNEL_ID)
-                .setSmallIcon(R.drawable.ic_notifications_black_24dp)
-                .setContentTitle(country)
-                .setContentText(description)
-                .build();
+        notification.setContentTitle(country);
+        notification.setContentText(description);
 
-        notificationManager.notify(NOTIFICATION_ID, notification);
+        notificationManager.notify(NOTIFICATION_ID, notification.build());
     }
 }
